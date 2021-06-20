@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Results</title>
+
+    <!-- Font Awesome Icon Library -->
+    <!-- For adding visual stars in place of ratings -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.checked {
+  color: orange;
+}
+</style>
+</head>
+
+
+
+<h1>Books Catalog</h1>
+
+
+<body>
+<form action="{% url 'book_results' %}" method="get"> {% csrf_token %}
+  <input name="searchit" type="text" placeholder="Search books...">
+</form>
+<br>
+<br>
+
+
+{{bookname}}
+
+
+
+ <!-- For adding the books which have comments  -->
+
+{% for set in querySets %}
+<ul>
+    {% for opinion in set %}
+    <h2>{{opinion.from_book}}</h2>
+
+
+    {% for x in opinion.star_finder  %}
+        <span class="fa fa-star checked"></span>
+    {% endfor %}
+
+    <br>
+    <br>
+
+    {{ opinion.description }}
+      <br><br/>
+      <br><br/>
+    {% endfor %}
+</ul>
+{% endfor %}
+
+
+
+
+ <!-- For adding the books that does not have comment , right under the commented books  -->
+{% for blist in booklist_wout_opinions %}
+<ul>
+    <h2>{{blist}}</h2>
+    {{no_reviews}}
+
+    <br>
+    <br><br>
+
+</ul>
+{% endfor %}
+
+
+
+</body>
+</html>

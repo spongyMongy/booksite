@@ -1,0 +1,32 @@
+<html><body>
+<h1>Books Catalog</h1>
+
+
+<form action="{% url 'book_results' %}" method="get"> {% csrf_token %}
+  <input name="searchit" type="text" placeholder="Search books...">
+</form>
+<br>
+
+
+
+<!-- Notifying user for the book that does not exist in the library  -->
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+             {% if message.tags %} {% endif %}  <span style="color: red">  <b>{{ message }}</b>  </span>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+<!-- Listing all books in the library  -->
+<ul>
+    <h2>Books</h2>
+    {% for book in books %}
+    <li>  <a href="{% url 'book_results'  %}?csrfmiddlewaretoken={{csrf_token}}&searchit={{ book.title }}"  />    {{ book.title }} </li>
+    {% endfor %}
+</ul>
+
+
+</body></html>
