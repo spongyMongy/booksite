@@ -8,7 +8,7 @@ command manager and gives the output from the book-opinion tables.
 
 
 
-After setting and activating virtual env, remember to install necessary packages.
+After setting and activating virtual env, remember to install necessary packages. <br />
 **pip install -r requirements.txt**
 
 
@@ -20,7 +20,7 @@ book instance of csv file should be uploaded before the opinion instance csv fil
 **python manage.py runserver**
 
 
-NOTE2: Csv files should be put in the directory :  **".../management"**
-Ps: For seeing API views, check urls  '/booksapi/'   and '/opinionsapi/'
+NOTE2: Csv files should be put in the directory :  *".../management"*
+Ps: For seeing API views, check urls  *'/booksapi/'*   and *'/opinionsapi/'*
 
 ---------------------------------------------------------------------------
