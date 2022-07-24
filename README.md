@@ -15,8 +15,8 @@ After setting and activating virtual env, remember to install necessary packages
 NOTE1: Due to foreign key dependency,  
 book instance of csv file should be uploaded before the opinion instance csv file.
 
-**python manage.py import_csv --books books.csv**
-**python manage.py import_csv --opinions opinions.csv**
+**python manage.py import_csv --books books.csv** <br />
+**python manage.py import_csv --opinions opinions.csv** <br />
 **python manage.py runserver**
 
 
