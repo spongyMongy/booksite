@@ -1,8 +1,8 @@
 # booksite
 Library-book search application
 
-Author: Kilic Arslan
-Date:   20.6.2021
+Author: Kilic Arslan <br />
+Date:   20.6.2021 <br />
 Description:  A standard library book searcher  that gets documents via the 
 command manager and gives the output from the book-opinion tables.
 
@@ -20,7 +20,7 @@ book instance of csv file should be uploaded before the opinion instance csv fil
 **python manage.py runserver**
 
 
-NOTE2: Csv files should be put in the directory :  *".../management"*
+NOTE2: Csv files should be put in the directory :  *".../management"* <br />
 Ps: For seeing API views, check urls  *'/booksapi/'*   and *'/opinionsapi/'*
 
 ---------------------------------------------------------------------------
