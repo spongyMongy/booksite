@@ -1,8 +1,8 @@
 from django.db import models
 
-# ISBN;Tytuł;Autor;Gatunek;
+
 class Books(models.Model):
-    ISBN = models.IntegerField()
+    ISBN = models.PositiveIntegerField(unique=True)
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     type = models.CharField(max_length=100)
@@ -11,28 +11,26 @@ class Books(models.Model):
         return self.title
 
 
-
-# ISNB;Ocena;Opis;
 class Opinions(models.Model):
     ISBN = models.ForeignKey(
         'Books',
         on_delete=models.CASCADE,
     )
     rating = models.IntegerField()
-    description = models.CharField(max_length=100)
+    description = models.TextField(max_length=100)
 
     @property
     def star_finder(self):
-        stars=''
-        for x in range(self.rating):
-            stars=stars+'*'
-        return  stars
+        stars = ''
+        for star in range(self.rating):
+            stars = stars + '*'
+        return stars
 
     @property
     def from_book(self):
-        from_bookis= Books.objects.select_related().filter(id=self.ISBN_id).values(('title'))
-        return from_bookis[0]['title']
+        from_book_is = Books.objects.select_related().filter(
+            id=self.ISBN_id).values('title')
+        return from_book_is[0]['title']
 
     def __str__(self):
         return self.description
-

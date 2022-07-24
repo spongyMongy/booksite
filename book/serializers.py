@@ -4,8 +4,6 @@ from .models import Books
 from .models import Opinions
 
 
-
-
 class BooksSerializer(serializers.ModelSerializer):
     class Meta:
         model = Books
@@ -15,7 +13,6 @@ class BooksSerializer(serializers.ModelSerializer):
 
 class OpinionsSerializer(serializers.ModelSerializer):
     class Meta:
-        model =  Opinions
+        model = Opinions
         fields = '__all__'
         depth = 1
-
